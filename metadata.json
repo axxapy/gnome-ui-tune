@@ -1,0 +1,9 @@
+{
+  "name": "Gnome 40 UI Improvements",
+  "description": "Somewhat improves Gnome 40 overview UI",
+  "uuid": "gnome-ui-tune@itstime.tech",
+  "settings-schema": "org.gnome.shell.extensions.gnome-ui-tune",
+  "shell-version": [
+    "40"
+  ]
+}
