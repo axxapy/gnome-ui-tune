@@ -11,4 +11,4 @@ Simple [gnome-shell](https://wiki.gnome.org/Projects/GnomeShell) (v40.0) extensi
 
 ## Screenshot
 
-[![screenshot1.png](https://i.postimg.cc/9X6JcK64/screenshot1.png)](https://postimg.cc/F1xjZWsm)
+![image](https://user-images.githubusercontent.com/3088476/114587629-daae3280-9c53-11eb-9c70-3fb40fbb3d42.png)
