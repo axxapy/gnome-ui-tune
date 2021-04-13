@@ -7,6 +7,7 @@ Simple [gnome-shell](https://wiki.gnome.org/Projects/GnomeShell) (v40.0) extensi
 ## Changes
  - Search textbox is hidden by default and shown only when user begins to type-to-search
  - Scale of workspaces thumbnails increased 2x
+ - Restores background image for workspace thumbnails
 
 ## Screenshot
 
