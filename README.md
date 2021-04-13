@@ -1,5 +1,7 @@
 # Gnome 40 Overview UI Tune
 
+[<img src="https://github.com/andyholmes/gnome-shell-extensions-badge/raw/master/get-it-on-ego.svg" width=120px>](https://extensions.gnome.org/extension/4158/gnome-40-ui-improvements/)
+
 Simple [gnome-shell](https://wiki.gnome.org/Projects/GnomeShell) (v40.0) extension that tunes overview UI to make it more usable.
 
 ## Changes
