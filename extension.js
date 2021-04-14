@@ -2,6 +2,7 @@
 
 const Main = imports.ui.main
 const workspaceThumbnail = imports.ui.workspaceThumbnail
+const Workspace = imports.ui.workspace.Workspace
 
 //const Self = imports.misc.extensionUtils.getCurrentExtension()
 //const css = Self.imports.src
@@ -37,6 +38,16 @@ class Extension {
             }
         }
 
+        // Firefox picture-in-picture
+        this.bkp._isOverviewWindow = Workspace.prototype._isOverviewWindow
+        const _isOverviewWindow = this.bkp._isOverviewWindow
+        Workspace.prototype._isOverviewWindow = function(win) {
+            if (win.title && win.title === 'Picture-in-Picture') {
+                if (win.get_wm_class && win.get_wm_class().includes("firefox")) return true;
+            }
+            return _isOverviewWindow.call(this, win);
+        }
+
         // Search input
         this.c = {
             searchEntry: Main.overview.searchEntry,
@@ -69,6 +80,12 @@ class Extension {
         if (this.bkp.thumb_onDestroy) {
             workspaceThumbnail.WorkspaceThumbnail.prototype._onDestroy = this.bkp.thumb_onDestroy
             delete(this.bkp.thumb_onDestroy)
+        }
+
+        // Firefox
+        if (this.bkp._isOverviewWindow) {
+            Workspace.prototype._isOverviewWindow = this.bkp._isOverviewWindow
+            delete(this.bkp._isOverviewWindow)
         }
 
         // Search input
