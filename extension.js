@@ -81,13 +81,15 @@ class Extension {
         }
 
         // Firefox picture-in-picture
-        this.bkp._isOverviewWindow = Workspace.prototype._isOverviewWindow
-        const _isOverviewWindow = this.bkp._isOverviewWindow
-        Workspace.prototype._isOverviewWindow = function(win) {
-            if (win.title && win.title === 'Picture-in-Picture') {
-                if (win.get_wm_class && win.get_wm_class().includes("firefox")) return true;
+        if (false) {
+            this.bkp._isOverviewWindow = Workspace.prototype._isOverviewWindow
+            const _isOverviewWindow = this.bkp._isOverviewWindow
+            Workspace.prototype._isOverviewWindow = function(win) {
+                if (win.title && win.title === 'Picture-in-Picture') {
+                    if (win.get_wm_class && win.get_wm_class().includes("firefox")) return true;
+                }
+                return _isOverviewWindow.call(this, win);
             }
-            return _isOverviewWindow.call(this, win);
         }
 
         // Search input
