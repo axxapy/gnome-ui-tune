@@ -19,48 +19,31 @@ class Extension {
         }
     }
 
-    disable_mod(name) {
-        if (!this.mods || !this.mods[name]) {
-            return
+    _refresh_mod(name) {
+        if (!this.available_mods[name]) return
+
+        if (this.settings.get_boolean(name)) { // enable
+            if (this.mods[name]) return
+
+            const mod = new this.available_mods[name]()
+            mod.enable()
+            this.mods[name] = mod
+        } else if (this.mods[name]) { //disable
+            this.mods[name].disable()
+            delete(this.mods[name])
         }
-
-        this.mods[name].disable()
-        delete(this.mods[name])
-    }
-
-    enable_mod(name) {
-        if (this.mods && this.mods[name]) {
-            return
-        }
-
-        if (!this.available_mods || !this.available_mods[name]) {
-            return
-        }
-
-        const mod = new this.available_mods[name]()
-
-        mod.enable()
-        this.mods[name] = mod
     }
 
     enable() {
         this.mods = {}
 
-        const settings = Convenience.getSettings()
-
-        const toggle = (name) => {
-            if (settings.get_boolean(name)) {
-                this.enable_mod(name)
-            } else {
-                this.disable_mod(name)
-            }
-        }
+        this.settings = Convenience.getSettings()
 
         Object.keys(this.available_mods).forEach(name => {
-            settings.connect('changed::' + name, () => {
-                toggle(name)
+            this.settings.connect('changed::' + name, () => {
+                this._refresh_mod(name)
             });
-            toggle(name)
+            this._refresh_mod(name)
         })
     }
 
