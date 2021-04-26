@@ -3,7 +3,7 @@ const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
 const workspaceThumbnail = imports.ui.workspaceThumbnail
 const SecondaryMonitorDisplay = imports.ui.workspacesView.SecondaryMonitorDisplay
 
-var Mod = class extends mod.Mod {
+var Mod = class extends mod.Base {
     enable() {
         // Thumbnails on main monitor
         this.bkp_MAX_THUMBNAIL_SCALE = workspaceThumbnail.MAX_THUMBNAIL_SCALE

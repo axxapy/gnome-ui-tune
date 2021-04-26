@@ -4,7 +4,7 @@ const Main = imports.ui.main
 const workspaceThumbnail = imports.ui.workspaceThumbnail
 const BackgroundManager = imports.ui.background.BackgroundManager
 
-var Mod = class extends mod.Mod {
+var Mod = class extends mod.Base {
     enable() {
         // Thumbnails on main monitor
         this.bkp_thumb_init = workspaceThumbnail.WorkspaceThumbnail.prototype._init;

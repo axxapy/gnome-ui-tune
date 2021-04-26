@@ -2,7 +2,7 @@ const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
 
 const Workspace = imports.ui.workspace.Workspace
 
-var Mod = class extends mod.Mod {
+var Mod = class extends mod.Base {
     enable() {
         this.bkp_isOverviewWindow = Workspace.prototype._isOverviewWindow
         const _isOverviewWindow = this.bkp_isOverviewWindow

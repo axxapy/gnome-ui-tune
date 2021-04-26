@@ -1,5 +1,5 @@
 
-var Mod = /*abstract*/ class {
+var Base = /*abstract*/ class {
     constructor() {
         //this.enable()
     }
