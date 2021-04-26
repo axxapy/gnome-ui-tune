@@ -30,7 +30,7 @@ class Extension {
             this.mods[name] = mod
         } else if (this.mods[name]) { //disable
             this.mods[name].disable()
-            delete(this.mods[name])
+            delete this.mods[name]
         }
     }
 
@@ -53,7 +53,8 @@ class Extension {
             this.mods[key].disable()
         }
 
-        delete(this.mods)
+        delete this.mods
+        delete this.settings
     }
 }
 
