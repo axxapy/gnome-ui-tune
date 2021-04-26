@@ -2,10 +2,22 @@
 
 const Self = imports.misc.extensionUtils.getCurrentExtension()
 const Convenience = Self.imports.src.convenience
-const {modHideSearchInput, modScaleThumbnails, modRestoreThumbnailsBackground, modFirefoxPipInOverview} = Self.imports.src
+const {
+    modHideSearchInput,
+    modScaleThumbnails,
+    modRestoreThumbnailsBackground,
+    modFirefoxPipInOverview
+} = Self.imports.src
 
 class Extension {
-    constructor() {}
+    constructor() {
+        this.available_mods = {
+            'hide-search': modHideSearchInput.Mod,
+            'increase-thumbnails-size': modScaleThumbnails.Mod,
+            'restore-thumbnails-background': modRestoreThumbnailsBackground.Mod,
+            'overview-firefox-pip': modFirefoxPipInOverview.Mod,
+        }
+    }
 
     disable_mod(name) {
         if (!this.mods || !this.mods[name]) {
@@ -21,27 +33,11 @@ class Extension {
             return
         }
 
-        let mod = null;
-        switch (name) {
-            case 'hide-search':
-                mod = new modHideSearchInput.Mod()
-                break
-
-            case 'increase-thumbnails-size':
-                mod = new modScaleThumbnails.Mod()
-                break
-
-            case 'restore-thumbnails-background':
-                mod = new modRestoreThumbnailsBackground.Mod()
-                break
-
-            case 'overview-firefox-pip':
-                mod = new modFirefoxPipInOverview.Mod()
-                break
-
-            default:
-                return
+        if (!this.available_mods || !this.available_mods[name]) {
+            return
         }
+
+        const mod = new this.available_mods[name]()
 
         mod.enable()
         this.mods[name] = mod
@@ -49,7 +45,6 @@ class Extension {
 
     enable() {
         this.mods = {}
-        this.available_mods = ['hide-search', 'increase-thumbnails-size', 'restore-thumbnails-background', 'overview-firefox-pip']
 
         const settings = Convenience.getSettings()
 
@@ -61,7 +56,7 @@ class Extension {
             }
         }
 
-        this.available_mods.forEach(name => {
+        Object.keys(this.available_mods).forEach(name => {
             settings.connect('changed::' + name, () => {
                 toggle(name)
             });
