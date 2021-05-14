@@ -8,6 +8,9 @@ Simple [gnome-shell](https://wiki.gnome.org/Projects/GnomeShell) (v40.0) extensi
  - Search textbox is hidden by default and shown only when user begins to type-to-search
  - Scale of workspaces thumbnails increased 2x
  - Restores background image for workspace thumbnails
+ - Firefox's PIP (picture in picture) window is now displayed on the overview screen
+
+All modifications can be disabled in the extension's settings.
 
 ## Screenshot
 

@@ -1,6 +1,6 @@
 {
   "name": "Gnome 40 UI Improvements",
-  "description": "Tunes gnome 40's Overview UI to make it more usable.\n\nChanges:\n- Search textbox is hidden by default and shown only when user begins to type-to-search\n- Scale of workspaces' thumbnails increased 2x\n- Restores wallpaper on workspaces' thumbnails. No more gray background.\n\nSource code: https://github.com/axxapy/gnome-ui-tune",
+  "description": "Tunes gnome 40's Overview UI to make it more usable.\n\nChanges:\n- Search textbox is hidden by default and shown only when user begins to type-to-search\n- Scale of workspaces' thumbnails increased 2x\n- Restores wallpaper on workspaces' thumbnails. No more gray background.\n- Firefox's PIP (picture in picture) window is now displayed on the overview screen\n\nAll modifications can be disabled in the extension's settings.",
   "url": "https://github.com/axxapy/gnome-ui-tune",
   "uuid": "gnome-ui-tune@itstime.tech",
   "settings-schema": "org.gnome.shell.extensions.gnome-ui-tune",
