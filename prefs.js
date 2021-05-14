@@ -5,12 +5,15 @@ const Gtk = imports.gi.Gtk;
 
 const Self = imports.misc.extensionUtils.getCurrentExtension()
 const Convenience = Self.imports.src.convenience
+const _ = imports.gettext.domain(Self.metadata.uuid).gettext
 
 
 function init() {
 }
 
 function buildPrefsWidget() {
+    imports.misc.extensionUtils.initTranslations(Self.metadata.uuid);
+
     const settings = Convenience.getSettings()
 
     let prefsWidget = new Gtk.Grid({
@@ -24,7 +27,7 @@ function buildPrefsWidget() {
     });
 
     let title = new Gtk.Label({
-        label: `<b>${Self.metadata.name} Preferences</b>`,
+        label: `<b>${_('settings-mods-list')}</b>`,
         halign: Gtk.Align.START,
         use_markup: true,
         visible: true
@@ -41,19 +44,13 @@ function buildPrefsWidget() {
     for (let modNum = 0; modNum < mods.length; modNum++) {
         const key = mods[modNum]
 
-        let toggleLabel = new Gtk.Label({
-            label: `${key}:`,
-            halign: Gtk.Align.START,
-            visible: true,
-        });
-        prefsWidget.attach(toggleLabel, 0, modNum + 1, 1, 1);
+        const row = modNum + 1
 
-        let toggle = new Gtk.Switch({
-            active: settings.get_boolean(key),
-            halign: Gtk.Align.END,
-            visible: true,
-        });
-        prefsWidget.attach(toggle, 1, modNum + 1, 1, 1);
+        const label = new Gtk.Label({label: _(key), halign: Gtk.Align.START})
+        const toggle = new Gtk.Switch({halign: Gtk.Align.END, active: settings.get_boolean(key)})
+
+        prefsWidget.attach(label, 0, row, 1, 1);
+        prefsWidget.attach(toggle, 1, row, 1, 1);
 
         settings.bind(key, toggle, 'active', Gio.SettingsBindFlags.DEFAULT)
     }

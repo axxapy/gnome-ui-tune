@@ -1,0 +1,14 @@
+msgid "settings-mods-list"
+msgstr "Available modifications"
+
+msgid "hide-search"
+msgstr "Hide Search"
+
+msgid "increase-thumbnails-size"
+msgstr "Increase desktops thumbnails scale"
+
+msgid "restore-thumbnails-background"
+msgstr "Restore desktops thumbnails background"
+
+msgid "overview-firefox-pip"
+msgstr "Display firefox's PIP window in the overview"
