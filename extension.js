@@ -2,21 +2,10 @@
 
 const Self = imports.misc.extensionUtils.getCurrentExtension()
 const Convenience = Self.imports.src.convenience
-const {
-    modHideSearchInput,
-    modScaleThumbnails,
-    modRestoreThumbnailsBackground,
-    modFirefoxPipInOverview
-} = Self.imports.src
 
 class Extension {
     constructor() {
-        this.available_mods = {
-            'hide-search': modHideSearchInput.Mod,
-            'increase-thumbnails-size': modScaleThumbnails.Mod,
-            'restore-thumbnails-background': modRestoreThumbnailsBackground.Mod,
-            'overview-firefox-pip': modFirefoxPipInOverview.Mod,
-        }
+        this.available_mods = Self.imports.src.modsList.get()
     }
 
     _refresh_mod(name) {
