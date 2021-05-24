@@ -34,12 +34,7 @@ function buildPrefsWidget() {
     });
     prefsWidget.attach(title, 0, 0, 2, 1);
 
-    const mods = [
-        'hide-search',
-        'increase-thumbnails-size',
-        'restore-thumbnails-background',
-        'overview-firefox-pip',
-    ]
+    const mods = Self.imports.src.modsList.getNames()
 
     for (let modNum = 0; modNum < mods.length; modNum++) {
         const key = mods[modNum]
