@@ -1,4 +1,4 @@
-.PHONY: gettext dist help
+.PHONY: gettext dist help schemas
 .DEFAULT_GOAL=help
 uuid:=$(shell cat metadata.json | jq -r .uuid)
 
@@ -11,3 +11,6 @@ gettext: ## Generate .mo translation files
 
 dist: ## Prepare zip file for extensions.gnome.org
 	gnome-extensions pack --force --podir=locale .
+
+schemas: ## Compile glib schemas
+	glib-compile-schemas ./schemas/

@@ -6,6 +6,7 @@ function get() {
         'hide-search': src.modHideSearchInput.Mod,
         'increase-thumbnails-size': src.modScaleThumbnails.Mod,
         'restore-thumbnails-background': src.modRestoreThumbnailsBackground.Mod,
+        'always-show-thumbnails': src.modAlwaysShowThumbnails.Mod,
         'overview-firefox-pip': src.modFirefoxPipInOverview.Mod,
     }
 }
@@ -16,6 +17,7 @@ function getNames() {
         'hide-search',
         'increase-thumbnails-size',
         'restore-thumbnails-background',
+        'always-show-thumbnails',
         'overview-firefox-pip',
     ];
 }

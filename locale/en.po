@@ -12,3 +12,6 @@ msgstr "Restore desktops thumbnails background"
 
 msgid "overview-firefox-pip"
 msgstr "Display firefox's PIP window in the overview"
+
+msgid "always-show-thumbnails"
+msgstr "Show workspaces' thumbnails even when there is only one workspace"

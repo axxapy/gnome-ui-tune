@@ -16,6 +16,11 @@
 			<summary>Restore thumbnails background</summary>
 			<description>Use desktop wallpaper for thumbnails background instead of solid grey color.</description>
 		</key>
+		<key name="always-show-thumbnails" type="b">
+			<default>true</default>
+			<summary>Always show thumbnails</summary>
+			<description>Show workspaces' thumbnails even when there is only single workspace.</description>
+		</key>
 		<key name="overview-firefox-pip" type="b">
 			<default>true</default>
 			<summary>Show firefox's Picture-In-Picture window in desktop overview</summary>
