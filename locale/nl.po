@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>\n"
+"Language-Team: Dutch\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"X-Generator: Poedit 3.0\n"
+
+msgid "settings-mods-list"
+msgstr "Beschikbare aanpassingen"
+
+msgid "hide-search"
+msgstr "Zoekvak verbergen"
+
+msgid "increase-thumbnails-size"
+msgstr "Vensterminiaturen vergroten"
+
+msgid "restore-thumbnails-background"
+msgstr "Achtergrond tonen achter miniaturen"
+
+msgid "overview-firefox-pip"
+msgstr "Firefox's PIP-venster tonen op activiteitenoverzicht"
+
+msgid "always-show-thumbnails"
+msgstr "Werkbladminiaturen ook tonen als er slechts één werkblad is"
