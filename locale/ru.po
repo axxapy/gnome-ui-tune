@@ -1,0 +1,18 @@
+
+msgid "settings-mods-list"
+msgstr "Доступные модификации"
+
+msgid "hide-search"
+msgstr "Скрыть поисковую строку"
+
+msgid "increase-thumbnails-size"
+msgstr "Увеличить размер переключателя рабочих столов"
+
+msgid "restore-thumbnails-background"
+msgstr "Отобразить обои в переключателе рабочих столов"
+
+msgid "overview-firefox-pip"
+msgstr "Отображать firefox's PIP окна в обзоре"
+
+msgid "always-show-thumbnails"
+msgstr "Всегда показывать переключатель рабочих столов"
