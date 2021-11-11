@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Morgan Antonsson <morgan.antonsson@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"X-Generator: Poedit 3.0\n"
+
+msgid "settings-mods-list"
+msgstr "Tillgängliga modifieringar"
+
+msgid "hide-search"
+msgstr "Dölj sökfältet"
+
+msgid "increase-thumbnails-size"
+msgstr "Öka skalning av skrivbordsminiatyrbilder"
+
+msgid "restore-thumbnails-background"
+msgstr "Återställ bakgrund för skrivbordsminiatyrbilder"
+
+msgid "overview-firefox-pip"
+msgstr "Visa firefox bild-i-bild-fönster i översiktsvyn"
+
+msgid "always-show-thumbnails"
+msgstr "Visa arbetsytornas miniatyrbilder även när det bara finns en arbetsyta"
