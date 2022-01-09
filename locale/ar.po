@@ -1,0 +1,30 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid "settings-mods-list"
+msgstr "الإعدادات المتاحة"
+
+msgid "hide-search"
+msgstr "اخف شريط البحث"
+
+msgid "increase-thumbnails-size"
+msgstr "كبر حجم الواجهات المصغرة"
+
+msgid "restore-thumbnails-background"
+msgstr "اعد ضبط خلفيات الواجهات المصغرة"
+
+msgid "overview-firefox-pip"
+msgstr "اعرض نافذة PIP التابعة ل Firefox علي واجهة النظرة العامة"
+
+msgid "always-show-thumbnails"
+msgstr "اعرض الواجهات المصغرة حتي ان كان هناك سطح مكتب وحيد"
