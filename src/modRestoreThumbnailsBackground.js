@@ -29,6 +29,7 @@ var Mod = class extends mod.Base {
         }
 
         // Thumbnails on second monitor
+        if (!imports.ui.workspacesView.ThumbnailsBox) return; // gnome 42 does not require this hack
         this.bkp_layoutManager_thumbnailsBox_updateStates = imports.ui.workspacesView.ThumbnailsBox.prototype._queueUpdateStates
         const layoutManager_thumbnailsBox_updateStates = this.bkp_layoutManager_thumbnailsBox_updateStates
         imports.ui.workspacesView.ThumbnailsBox.prototype._queueUpdateStates = function() {
