@@ -1,0 +1,33 @@
+# 小山田 純 <oyamadajun@outlook.jp>, 2022.
+
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: 小山田 純 <oyamadajun@outlook.jp>\n"
+"Language-Team: \n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid "settings-mods-list"
+msgstr "設定"
+
+msgid "hide-search"
+msgstr "検索窓を非表示"
+
+msgid "increase-thumbnails-size"
+msgstr "ワークスペースのサムネイルを大きく表示"
+
+msgid "restore-thumbnails-background"
+msgstr "ワークスペースのサムネイルの壁紙を非表示"
+
+msgid "overview-firefox-pip"
+msgstr "アクティビティオーバービューにFirefoxのピクチャーインピクチャーを表示"
+
+msgid "always-show-thumbnails"
+msgstr "ワークスペースが1つしかない場合でもサムネイルを表示"
