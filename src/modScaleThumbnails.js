@@ -9,18 +9,20 @@ var Mod = class extends mod.Base {
         this.bkp_MAX_THUMBNAIL_SCALE = workspaceThumbnail.MAX_THUMBNAIL_SCALE
         workspaceThumbnail.MAX_THUMBNAIL_SCALE = 0.1
 
-        // Thumbnails on second monitor
-        this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
-        SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
-            if (!this._thumbnails.visible)
-                return 0;
+        if (SecondaryMonitorDisplay) {
+            // Thumbnails on second monitor
+            this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
+            SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
+                if (!this._thumbnails.visible)
+                    return 0;
 
-            const [width, height] = box.get_size();
-            const { expandFraction } = this._thumbnails;
-            const [thumbnailsHeight] = this._thumbnails.get_preferred_height(width);
-            return Math.min(
-                thumbnailsHeight * expandFraction,
-                height * workspaceThumbnail.MAX_THUMBNAIL_SCALE);
+                const [width, height] = box.get_size();
+                const { expandFraction } = this._thumbnails;
+                const [thumbnailsHeight] = this._thumbnails.get_preferred_height(width);
+                return Math.min(
+                    thumbnailsHeight * expandFraction,
+                    height * workspaceThumbnail.MAX_THUMBNAIL_SCALE);
+            }
         }
     }
 
@@ -29,7 +31,7 @@ var Mod = class extends mod.Base {
             workspaceThumbnail.MAX_THUMBNAIL_SCALE = this.bkp_MAX_THUMBNAIL_SCALE
         }
 
-        if (this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight) {
+        if (this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight && SecondaryMonitorDisplay) {
             SecondaryMonitorDisplay.prototype._getThumbnailsHeight = this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight
         }
     }
