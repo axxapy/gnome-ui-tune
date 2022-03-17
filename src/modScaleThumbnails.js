@@ -10,6 +10,7 @@ var Mod = class extends mod.Base {
         workspaceThumbnail.MAX_THUMBNAIL_SCALE = 0.1
 
         // Thumbnails on second monitor
+        if (!SecondaryMonitorDisplay) return;
         this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
         SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
             if (!this._thumbnails.visible)
