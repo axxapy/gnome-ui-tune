@@ -1,7 +1,7 @@
 const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
 
 const workspaceThumbnail = imports.ui.workspaceThumbnail
-const SecondaryMonitorDisplay = imports.ui.workspacesView.SecondaryMonitorDisplay
+let SecondaryMonitorDisplay = imports.ui.workspacesView.SecondaryMonitorDisplay
 
 var Mod = class extends mod.Base {
     enable() {
@@ -10,7 +10,10 @@ var Mod = class extends mod.Base {
         workspaceThumbnail.MAX_THUMBNAIL_SCALE = 0.1
 
         // Thumbnails on second monitor
-        if (!SecondaryMonitorDisplay) return;
+
+        // for gnome 42: SecondaryMonitorDisplay may get initialized after extension code is loaded => import above will not work
+        SecondaryMonitorDisplay ??= imports.ui.workspacesView.SecondaryMonitorDisplay
+
         this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
         SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
             if (!this._thumbnails.visible)
