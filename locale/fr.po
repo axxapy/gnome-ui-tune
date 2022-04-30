@@ -1,0 +1,31 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Benjamin MENANT <dev@menant-benjamin.fr>\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid "settings-mods-list"
+msgstr "Modifications possibles"
+
+msgid "hide-search"
+msgstr "Masquer la barre recherche"
+
+msgid "increase-thumbnails-size"
+msgstr "Augmenter la taille des vignettes des bureaux"
+
+msgid "restore-thumbnails-background"
+msgstr "Restaurer le fond d’écran des vignettes des bureaux"
+
+msgid "overview-firefox-pip"
+msgstr "Afficher la fenêtre PIP de Firefox dans la vue d’ensemble des Activités"
+
+msgid "always-show-thumbnails"
+msgstr "Toujours afficher les vignettes des bureaux, même quand il n’y a qu’un seul bureau"
