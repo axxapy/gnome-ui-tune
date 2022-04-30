@@ -16,7 +16,7 @@ msgid "settings-mods-list"
 msgstr "Modifications possibles"
 
 msgid "hide-search"
-msgstr "Masquer la barre recherche"
+msgstr "Masquer la barre de recherche"
 
 msgid "increase-thumbnails-size"
 msgstr "Augmenter la taille des vignettes des bureaux"
