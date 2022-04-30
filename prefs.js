@@ -4,7 +4,7 @@ const Gio = imports.gi.Gio;
 const Gtk = imports.gi.Gtk;
 
 const Self = imports.misc.extensionUtils.getCurrentExtension()
-const Convenience = Self.imports.src.convenience
+const extensionUtils = imports.misc.extensionUtils
 const _ = imports.gettext.domain(Self.metadata.uuid).gettext
 
 
@@ -12,9 +12,9 @@ function init() {
 }
 
 function buildPrefsWidget() {
-    imports.misc.extensionUtils.initTranslations(Self.metadata.uuid);
+    extensionUtils.initTranslations(Self.metadata.uuid);
 
-    const settings = Convenience.getSettings()
+    const settings = extensionUtils.getSettings()
 
     let prefsWidget = new Gtk.Grid({
         margin_top: 18,

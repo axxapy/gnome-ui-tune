@@ -12,7 +12,7 @@ var Mod = class extends mod.Base {
         // Thumbnails on second monitor
 
         // for gnome 42: SecondaryMonitorDisplay may get initialized after extension code is loaded => import above will not work
-        SecondaryMonitorDisplay ??= imports.ui.workspacesView.SecondaryMonitorDisplay
+        SecondaryMonitorDisplay = SecondaryMonitorDisplay ?? imports.ui.workspacesView.SecondaryMonitorDisplay
 
         this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
         SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
