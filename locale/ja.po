@@ -24,10 +24,10 @@ msgid "increase-thumbnails-size"
 msgstr "ワークスペースのサムネイルを大きく表示"
 
 msgid "restore-thumbnails-background"
-msgstr "ワークスペースのサムネイルの壁紙を非表示"
+msgstr "ワークスペースのサムネイルに壁紙を表示"
 
 msgid "overview-firefox-pip"
-msgstr "アクティビティオーバービューにFirefoxのピクチャーインピクチャーを表示"
+msgstr "アクティビティオーバービューにFirefoxのピクチャーインピクチャーを非表示"
 
 msgid "always-show-thumbnails"
 msgstr "ワークスペースが1つしかない場合でもサムネイルを表示"
