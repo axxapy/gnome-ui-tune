@@ -1,7 +1,7 @@
 /* exported init */
 
 const Self = imports.misc.extensionUtils.getCurrentExtension()
-const Convenience = Self.imports.src.convenience
+const extensionUtils = imports.misc.extensionUtils
 
 class Extension {
     constructor() {
@@ -26,7 +26,7 @@ class Extension {
     enable() {
         this.mods = {}
 
-        this.settings = Convenience.getSettings()
+        this.settings = extensionUtils.getSettings()
 
         Object.keys(this.available_mods).forEach(name => {
             this.settings.connect('changed::' + name, () => {

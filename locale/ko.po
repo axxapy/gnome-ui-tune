@@ -1,0 +1,32 @@
+# Junghee Lee <daemul72@gmail.com>, 2022.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-ur-tune\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"Language-Team: \n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 3.0.1\n"
+
+msgid "settings-mods-list"
+msgstr "설정 모드 목록"
+
+msgid "hide-search"
+msgstr "검색창 숨김"
+
+msgid "increase-thumbnails-size"
+msgstr "마중그림 크기 증가"
+
+msgid "restore-thumbnails-background"
+msgstr "마중그림 배경 복원"
+
+msgid "overview-firefox-pip"
+msgstr "Firefox PIP 개관"
+
+msgid "always-show-thumbnails"
+msgstr "항상 마중그림 표시"
