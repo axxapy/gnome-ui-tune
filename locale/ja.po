@@ -1,5 +1,4 @@
 # 小山田 純 <oyamadajun@outlook.jp>, 2022.
-
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
