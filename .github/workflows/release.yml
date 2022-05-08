@@ -1,0 +1,21 @@
+name: Release Flow
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/axxapy/gnome-extensions-docker
+    steps:
+      - uses: actions/checkout@v3
+      - run: make dist
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          files: "*.zip"
