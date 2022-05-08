@@ -1,5 +1,4 @@
 # 小山田 純 <oyamadajun@outlook.jp>, 2022.
-
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
@@ -24,7 +23,7 @@ msgid "increase-thumbnails-size"
 msgstr "ワークスペースのサムネイルを大きく表示"
 
 msgid "restore-thumbnails-background"
-msgstr "ワークスペースのサムネイルの壁紙を非表示"
+msgstr "ワークスペースのサムネイルに壁紙を表示"
 
 msgid "overview-firefox-pip"
 msgstr "アクティビティオーバービューにFirefoxのピクチャーインピクチャーを表示"
