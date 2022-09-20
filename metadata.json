@@ -5,6 +5,6 @@
   "uuid": "gnome-ui-tune@itstime.tech",
   "settings-schema": "org.gnome.shell.extensions.gnome-ui-tune",
   "shell-version": [
-    "40", "41", "42"
+    "43"
   ]
 }
