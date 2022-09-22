@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist>
+	<enum id="org.gnome.shell.extensions.gnome-ui-tune.mod.increase-thumbnails-size">
+		<value nick="100%" value="5"/>
+		<value nick="200%" value="10"/>
+		<value nick="300%" value="15"/>
+	</enum>
 	<schema id="org.gnome.shell.extensions.gnome-ui-tune" path="/org/gnome/shell/extensions/gnome-ui-tune/">
 		<key name="hide-search" type="b">
 			<default>true</default>
 			<summary>Hide search input</summary>
 			<description>Hide search input on overview screen. Search input will be shown when user starts to type-to-search.</description>
 		</key>
-		<key name="increase-thumbnails-size" type="b">
-			<default>true</default>
-			<summary>Increase thumbnails size</summary>
+		<key name="increase-thumbnails-size" enum="org.gnome.shell.extensions.gnome-ui-tune.mod.increase-thumbnails-size">
+			<default>'200%'</default>
+			<summary>Thumbnails size</summary>
 			<description>Increases thumbnails size twice to make them actually usable.</description>
 		</key>
 		<key name="restore-thumbnails-background" type="b">

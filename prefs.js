@@ -42,12 +42,38 @@ function buildPrefsWidget() {
         const row = modNum + 1
 
         const label = new Gtk.Label({label: _(key), halign: Gtk.Align.START})
-        const toggle = new Gtk.Switch({halign: Gtk.Align.END, active: settings.get_boolean(key)})
+
+        const value = settings.get_value(key)
+        let toggle = null
+        switch (value.get_type_string()) {
+            case "s":
+                toggle = new Gtk.Box({halign: Gtk.Align.END, css_classes: ['linked']})
+                const value_enum = settings.get_enum(key)
+                const value_string = settings.get_string(key)
+
+                const values = settings.get_range(key).deep_unpack()[1].deep_unpack()
+
+                let btn = null
+                for (let v in values) {
+                    btn = new Gtk.ToggleButton({
+                        active: value_string === values[v],
+                        label: values[v],
+                        group: btn
+                    })
+                    toggle.append(btn)
+                    btn.connect('toggled', button => {
+                        button.active && settings.set_string(key, values[v])
+                    })
+                }
+                break
+
+            default:
+                toggle = new Gtk.Switch({halign: Gtk.Align.END, active: settings.get_boolean(key)})
+                settings.bind(key, toggle, 'active', Gio.SettingsBindFlags.DEFAULT)
+        }
 
         prefsWidget.attach(label, 0, row, 1, 1);
         prefsWidget.attach(toggle, 1, row, 1, 1);
-
-        settings.bind(key, toggle, 'active', Gio.SettingsBindFlags.DEFAULT)
     }
 
 
