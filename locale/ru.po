@@ -6,7 +6,7 @@ msgid "hide-search"
 msgstr "Скрыть поисковую строку"
 
 msgid "increase-thumbnails-size"
-msgstr "Увеличить размер переключателя рабочих столов"
+msgstr "Размер переключателя рабочих столов"
 
 msgid "restore-thumbnails-background"
 msgstr "Отобразить обои в переключателе рабочих столов"

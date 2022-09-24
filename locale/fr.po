@@ -19,7 +19,7 @@ msgid "hide-search"
 msgstr "Masquer la barre de recherche"
 
 msgid "increase-thumbnails-size"
-msgstr "Augmenter la taille des vignettes des bureaux"
+msgstr "La taille des vignettes des bureaux"
 
 msgid "restore-thumbnails-background"
 msgstr "Restaurer le fond d’écran des vignettes des bureaux"

@@ -5,7 +5,7 @@ msgid "hide-search"
 msgstr "Hide Search"
 
 msgid "increase-thumbnails-size"
-msgstr "Increase desktops thumbnails scale"
+msgstr "Desktops thumbnails scale"
 
 msgid "restore-thumbnails-background"
 msgstr "Restore desktops thumbnails background"
