@@ -11,7 +11,7 @@ class Extension {
     _refresh_mod(name) {
         if (!this.available_mods[name]) return
 
-        let enabled = false
+        let enabled, settings = false
         const value = this.settings.get_value(name)
         switch (value.get_type_string()) {
             case "s":
@@ -19,6 +19,7 @@ class Extension {
                     this.mods[name].disable()
                     delete this.mods[name]
                 }
+                settings = this.settings.get_enum(name)
                 enabled = true
                 break
 
@@ -29,7 +30,7 @@ class Extension {
         if (enabled) { // enable
             if (this.mods[name]) return
 
-            const mod = new this.available_mods[name]()
+            const mod = new this.available_mods[name](settings)
             mod.enable()
             this.mods[name] = mod
         } else if (this.mods[name]) { //disable

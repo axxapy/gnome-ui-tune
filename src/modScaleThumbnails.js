@@ -4,15 +4,19 @@ const workspaceThumbnail = imports.ui.workspaceThumbnail
 let SecondaryMonitorDisplay = imports.ui.workspacesView.SecondaryMonitorDisplay
 
 var Mod = class extends mod.Base {
+    constructor(scaleFactor) {
+        super()
+        this.scaleFactor = scaleFactor / 100
+    }
+
     enable() {
         // Thumbnails on main monitor
-        const scale = imports.misc.extensionUtils.getSettings().get_enum('increase-thumbnails-size') / 100
-        if (scale === workspaceThumbnail.MAX_THUMBNAIL_SCALE) {
+        if (this.scaleFactor === workspaceThumbnail.MAX_THUMBNAIL_SCALE) {
             return
         }
 
         this.bkp_MAX_THUMBNAIL_SCALE = workspaceThumbnail.MAX_THUMBNAIL_SCALE
-        workspaceThumbnail.MAX_THUMBNAIL_SCALE = scale
+        workspaceThumbnail.MAX_THUMBNAIL_SCALE = this.scaleFactor
 
         // Thumbnails on second monitor
         // for gnome 42: SecondaryMonitorDisplay may get initialized after extension code is loaded => import above will not work
