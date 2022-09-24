@@ -1,30 +1,42 @@
 const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
 
 const Main = imports.ui.main
+const GLib = imports.gi.GLib
 
 var Mod = class extends mod.Base {
     enable() {
-        this.c = {
-            searchEntry: Main.overview.searchEntry,
-            searchController: Main.overview._overview.controls._searchController,
-        }
+        // Normally, we need to just call Main.overview.searchEntry.hide() to hide search bar once.
+        // But with extension Dash2Dock, if we do that before it initialized (and it does that when overview is showed
+        //  for the first time), it breaks overview completely. This hack delays hiding of search bar for 50ms so that
+        //  Dash2Dock would have time to initialize. We need this hack only once, so it disconnects from that signal
+        //  right away.
+        const onceConnectId = Main.overview.connect('showing', () => {
+            this.enableTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
+                Main.overview.searchEntry.hide()
+                delete this.enableTimeoutId
+                return GLib.SOURCE_REMOVE
+            })
+            Main.overview.disconnect(onceConnectId)
+        })
 
-        this.c.searchEntry.hide()
-
-        this.connectedId = this.c.searchController.connect('notify::search-active', () => {
-            if (this.c.searchController.searchActive) {
-                this.c.searchEntry.show();
+        this.connectedId = Main.overview._overview.controls._searchController.connect('notify::search-active', () => {
+            if (Main.overview._overview.controls._searchController.searchActive) {
+                Main.overview.searchEntry.show();
             } else {
-                this.c.searchEntry.hide();
+                Main.overview.searchEntry.hide();
             }
         })
     }
 
     disable() {
         if (this.connectedId) {
-            this.c.searchController.disconnect(this.connectedId)
+            Main.overview._overview.controls._searchController.disconnect(this.connectedId)
         }
 
-        this.c.searchEntry.show()
+        if (this.enableTimeoutId) {
+            GLib.source_remove(this.enableTimeoutId);
+        }
+
+        Main.overview.searchEntry.show()
     }
 }
