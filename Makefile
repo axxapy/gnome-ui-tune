@@ -1,4 +1,4 @@
-.PHONY: gettext dist help schemas
+.PHONY: gettext dist help schemas update-ff-translations
 .DEFAULT_GOAL=help
 uuid:=$(shell cat metadata.json | jq -r .uuid)
 
@@ -15,3 +15,5 @@ dist: schemas gettext ## Prepare zip file for extensions.gnome.org
 schemas: ## Compile glib schemas
 	glib-compile-schemas ./schemas/
 
+update-ff-translations: ## Updates PIP window title translations from Firefox
+	./scripts/update-ff-translations.sh
