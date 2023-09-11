@@ -1,6 +1,6 @@
 {
   "name": "Gnome 4x UI Improvements",
-  "description": "Tunes gnome 40-43 Overview UI to make it more usable.\n\nChanges:\n- Search textbox is hidden by default and shown only when user begins to type-to-search\n- Scale of workspaces' thumbnails increased 2x\n- Restores wallpaper on workspaces' thumbnails. No more gray background\n- Show workspaces' thumbnails even when there is only one workspace\n- Firefox's PIP (picture in picture) window is now displayed on the overview screen\n\nAll modifications can be disabled in the extension's settings.\n\nATTENTION!\nAfter extension update, gnome-shell restart is required:\nX11: Alt+F2 => r\nWayland: logout => login",
+  "description": "Tunes gnome 40-44 Overview UI to make it more usable.\n\nChanges:\n- Search textbox is hidden by default and shown only when user begins to type-to-search\n- Scale of workspaces' thumbnails increased 2x\n- Restores wallpaper on workspaces' thumbnails. No more gray background\n- Show workspaces' thumbnails even when there is only one workspace\n- Firefox's PIP (picture in picture) window is now displayed on the overview screen\n\nAll modifications can be disabled in the extension's settings.\n\nATTENTION!\nAfter extension update, gnome-shell restart is required:\nX11: Alt+F2 => r\nWayland: logout => login",
   "url": "https://github.com/axxapy/gnome-ui-tune",
   "uuid": "gnome-ui-tune@itstime.tech",
   "settings-schema": "org.gnome.shell.extensions.gnome-ui-tune",
