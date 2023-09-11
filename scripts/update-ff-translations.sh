@@ -11,7 +11,7 @@ STRINGS=""
 for lang in "${LANGS[@]}"; do
     echo "Fetching $lang"
 
-    STRING=$(curl -s https://hg.mozilla.org{$lang}raw-file/tip/toolkit/toolkit/pictureinpicture/pictureinpicture.ftl | grep 'pictureinpicture-player-title =' | cut -d'=' -f2 | tr -d '[:space:]')
+    STRING=$(curl -s https://hg.mozilla.org{$lang}raw-file/tip/toolkit/toolkit/pictureinpicture/pictureinpicture.ftl | grep 'pictureinpicture-player-title =' | cut -d'=' -f2 | sed "s/'/\\\'/g" | xargs)
     STRINGS="$STRINGS\"$STRING\":true,\n"
 done
 
