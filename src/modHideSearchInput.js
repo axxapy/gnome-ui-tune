@@ -11,7 +11,7 @@ var Mod = class extends mod.Base {
         //  Dash2Dock would have time to initialize. We need this hack only once, so it disconnects from that signal
         //  right away.
         const onceConnectId = Main.overview.connect('showing', () => {
-            this.enableTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
+            this.enableTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 50, () => {
                 Main.overview.searchEntry.hide()
                 delete this.enableTimeoutId
                 return GLib.SOURCE_REMOVE
