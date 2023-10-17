@@ -1,29 +1,38 @@
 import {Mod} from './mod.js'
 
+import Clutter from 'gi://Clutter'
 import * as Main from 'resource:///org/gnome/shell/ui/main.js'
-import GLib from 'gi://GLib'
 
 export default class extends Mod {
+    show_search() {
+        // Main.overview.searchEntry.show();
+        Main.overview.searchEntry.get_parent().ease({
+            height  : Main.overview.searchEntry.height,
+            mode    : Clutter.AnimationMode.EASE,
+            duration: 10,
+        })
+    }
+
+    hide_search() {
+        // Main.overview.searchEntry.hide();
+        Main.overview.searchEntry.get_parent().ease({
+            height  : 0,
+            mode    : Clutter.AnimationMode.EASE,
+            duration: 100,
+        })
+    }
+
     enable() {
-        // Normally, we need to just call Main.overview.searchEntry.hide() to hide search bar once.
-        // But with extension Dash2Dock, if we do that before it initialized (and it does that when overview is showed
-        //  for the first time), it breaks overview completely. This hack delays hiding of search bar for 50ms so that
-        //  Dash2Dock would have time to initialize. We need this hack only once, so it disconnects from that signal
-        //  right away.
         const onceConnectId = Main.overview.connect('showing', () => {
-            this.enableTimeoutId = GLib.timeout_add(GLib.PRIORITY_DEFAULT, 500, () => {
-                Main.overview.searchEntry.hide()
-                delete this.enableTimeoutId
-                return GLib.SOURCE_REMOVE
-            })
+            this.hide_search()
             Main.overview.disconnect(onceConnectId)
         })
 
         this.connectedId = Main.overview._overview.controls._searchController.connect('notify::search-active', () => {
             if (Main.overview._overview.controls._searchController.searchActive) {
-                Main.overview.searchEntry.show();
+                this.show_search()
             } else {
-                Main.overview.searchEntry.hide();
+                this.hide_search()
             }
         })
     }
@@ -33,10 +42,6 @@ export default class extends Mod {
             Main.overview._overview.controls._searchController.disconnect(this.connectedId)
         }
 
-        if (this.enableTimeoutId) {
-            GLib.source_remove(this.enableTimeoutId);
-        }
-
-        Main.overview.searchEntry.show()
+        this.show_search()
     }
 }
