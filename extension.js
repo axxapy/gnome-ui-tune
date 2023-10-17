@@ -1,13 +1,7 @@
-/* exported init */
+import * as modsList from './src/modsList.js'
+import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-const Self = imports.misc.extensionUtils.getCurrentExtension()
-const extensionUtils = imports.misc.extensionUtils
-
-class Extension {
-    constructor() {
-        this.available_mods = Self.imports.src.modsList.get()
-    }
-
+export default class extends Extension {
     _refresh_mod(name) {
         if (!this.available_mods[name]) return
 
@@ -40,9 +34,10 @@ class Extension {
     }
 
     enable() {
+        this.available_mods = modsList.get()
         this.mods = {}
 
-        this.settings = extensionUtils.getSettings()
+        this.settings = this.getSettings()
 
         Object.keys(this.available_mods).forEach(name => {
             this.settings.connect('changed::' + name, () => {
@@ -58,11 +53,8 @@ class Extension {
             this.mods[key].disable()
         }
 
+        delete this.available_mods
         delete this.mods
         delete this.settings
     }
-}
-
-function init() {
-    return new Extension();
 }

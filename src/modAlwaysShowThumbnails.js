@@ -1,8 +1,8 @@
-const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
+import {Mod} from './mod.js'
 
-const ThumbnailsBox = imports.ui.workspaceThumbnail.ThumbnailsBox
+import {ThumbnailsBox} from 'resource:///org/gnome/shell/ui/workspaceThumbnail.js'
 
-var Mod = class extends mod.Base {
+export default class extends Mod {
     enable() {
         this.bkp = ThumbnailsBox.prototype._updateShouldShow
         ThumbnailsBox.prototype._updateShouldShow = function() {

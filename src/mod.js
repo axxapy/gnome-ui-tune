@@ -1,8 +1,5 @@
 
-var Base = /*abstract*/ class {
-    constructor() {
-        //this.enable()
-    }
+export class Mod {
     enable() {}
     disable() {}
 }

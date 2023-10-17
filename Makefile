@@ -1,6 +1,6 @@
 .PHONY: gettext dist help schemas update-ff-translations
 .DEFAULT_GOAL=help
-uuid:=$(shell cat metadata.json | jq -r .uuid)
+uuid:=$(shell jq -r .uuid metadata.json)
 
 help:  ## Show this help
 	@awk 'BEGIN {FS = ":.*?## "} /^[\/a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-25s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)

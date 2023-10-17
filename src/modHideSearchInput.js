@@ -1,9 +1,9 @@
-const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
+import {Mod} from './mod.js'
 
-const Main = imports.ui.main
-const GLib = imports.gi.GLib
+import * as Main from 'resource:///org/gnome/shell/ui/main.js'
+import GLib from 'gi://GLib'
 
-var Mod = class extends mod.Base {
+export default class extends Mod {
     enable() {
         // Normally, we need to just call Main.overview.searchEntry.hide() to hide search bar once.
         // But with extension Dash2Dock, if we do that before it initialized (and it does that when overview is showed

@@ -1,11 +1,10 @@
-const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
+import {Mod} from './mod.js'
+import {titles} from './modFirefoxPipInOverview_titles.js'
 
-const Workspace = imports.ui.workspace.Workspace
+import {Workspace} from  'resource:///org/gnome/shell/ui/workspace.js'
 
-var Mod = class extends mod.Base {
+export default class extends Mod {
     enable() {
-        const titles = imports.misc.extensionUtils.getCurrentExtension().imports.src.modFirefoxPipInOverview_titles.titles
-
         this.bkp_isOverviewWindow = Workspace.prototype._isOverviewWindow
         const _isOverviewWindow = this.bkp_isOverviewWindow
         Workspace.prototype._isOverviewWindow = function(win) {

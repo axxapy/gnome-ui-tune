@@ -1,15 +1,14 @@
-const mod = imports.misc.extensionUtils.getCurrentExtension().imports.src.mod
+import {Mod} from './mod.js'
 
-const Main = imports.ui.main
-const workspaceThumbnail = imports.ui.workspaceThumbnail
-const BackgroundManager = imports.ui.background.BackgroundManager
+import {WorkspaceThumbnail} from 'resource:///org/gnome/shell/ui/workspaceThumbnail.js'
+import {BackgroundManager} from  'resource:///org/gnome/shell/ui/background.js'
 
-var Mod = class extends mod.Base {
+export default class extends Mod {
     enable() {
         // Thumbnails on main monitor
-        this.bkp_thumb_init = workspaceThumbnail.WorkspaceThumbnail.prototype._init;
+        this.bkp_thumb_init = WorkspaceThumbnail.prototype._init;
         const _init = this.bkp_thumb_init
-        workspaceThumbnail.WorkspaceThumbnail.prototype._init = function(metaWorkspace, monitorIndex) {
+        WorkspaceThumbnail.prototype._init = function(metaWorkspace, monitorIndex) {
             _init.call(this, metaWorkspace, monitorIndex)
             this._bgManager = new BackgroundManager({
                 monitorIndex: monitorIndex,
@@ -18,56 +17,24 @@ var Mod = class extends mod.Base {
             });
         }
 
-        this.bkp_thumb_onDestroy = workspaceThumbnail.WorkspaceThumbnail.prototype._onDestroy;
+        this.bkp_thumb_onDestroy = WorkspaceThumbnail.prototype._onDestroy;
         const _onDestroy = this.bkp_thumb_onDestroy
-        workspaceThumbnail.WorkspaceThumbnail.prototype._onDestroy = function() {
+        WorkspaceThumbnail.prototype._onDestroy = function() {
             _onDestroy.call(this)
             if (this._bgManager) {
                 this._bgManager.destroy();
                 this._bgManager = null;
             }
         }
-
-        // Thumbnails on second monitor
-        if (!imports.ui.workspacesView.ThumbnailsBox) return; // gnome 42 does not require this hack
-        this.bkp_layoutManager_thumbnailsBox_updateStates = imports.ui.workspacesView.ThumbnailsBox.prototype._queueUpdateStates
-        const layoutManager_thumbnailsBox_updateStates = this.bkp_layoutManager_thumbnailsBox_updateStates
-        imports.ui.workspacesView.ThumbnailsBox.prototype._queueUpdateStates = function() {
-            layoutManager_thumbnailsBox_updateStates.call(this)
-
-            this._thumbnails.forEach(thumbnail => {
-                if (thumbnail._bgManager && thumbnail._bgManager.HACKED) {
-                    return
-                }
-                thumbnail._bgManager = new BackgroundManager({
-                    monitorIndex: this._monitorIndex,
-                    container: thumbnail._contents,
-                    vignette: false
-                });
-                thumbnail._bgManager.HACKED = true
-                const onDestroy = this._thumbnails[0]._onDestroy
-                thumbnail._onDestroy = function() {
-                    onDestroy.call(this)
-                    if (this._bgManager) {
-                        this._bgManager.destroy();
-                        this._bgManager = null;
-                    }
-                }
-            })
-        }
     }
 
     disable() {
         if (this.bkp_thumb_init) {
-            workspaceThumbnail.WorkspaceThumbnail.prototype._init = this.bkp_thumb_init
+            WorkspaceThumbnail.prototype._init = this.bkp_thumb_init
         }
 
         if (this.bkp_thumb_onDestroy) {
-            workspaceThumbnail.WorkspaceThumbnail.prototype._onDestroy = this.bkp_thumb_onDestroy
-        }
-
-        if (this.bkp_layoutManager_thumbnailsBox_updateStates) {
-            imports.ui.workspacesView.ThumbnailsBox.prototype._queueUpdateStates = this.bkp_layoutManager_thumbnailsBox_updateStates
+            WorkspaceThumbnail.prototype._onDestroy = this.bkp_thumb_onDestroy
         }
     }
 }
