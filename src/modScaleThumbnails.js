@@ -23,7 +23,7 @@ export default class extends Mod {
         const __scaleFactor = this.scaleFactor
         this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
         SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
-            if (!this._thumbnails.visible)
+            if (!this || !this._thumbnails.visible)
                 return 0;
             
             this._thumbnails._maxThumbnailScale = __scaleFactor
