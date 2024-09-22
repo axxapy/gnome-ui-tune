@@ -4,6 +4,8 @@
 		<value nick="100%" value="5"/>
 		<value nick="200%" value="10"/>
 		<value nick="300%" value="15"/>
+		<value nick="400%" value="20"/>
+		<value nick="500%" value="25"/>
 	</enum>
 	<schema id="org.gnome.shell.extensions.gnome-ui-tune" path="/org/gnome/shell/extensions/gnome-ui-tune/">
 		<key name="hide-search" type="b">
