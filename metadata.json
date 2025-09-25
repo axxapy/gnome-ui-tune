@@ -4,5 +4,5 @@
   "url": "https://github.com/axxapy/gnome-ui-tune",
   "uuid": "gnome-ui-tune@itstime.tech",
   "settings-schema": "org.gnome.shell.extensions.gnome-ui-tune",
-  "shell-version": ["45", "46", "47", "48"]
+  "shell-version": ["45", "46", "47", "48", "49"]
 }
