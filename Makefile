@@ -9,7 +9,8 @@ gettext: ## Generate .mo translation files
 	find locale -name *.po | xargs basename -s .po | xargs -I{} mkdir -p locale/{}/LC_MESSAGES || /bin/true
 	find locale -name *.po | xargs basename -s .po | xargs -I{} msgfmt -D locale -o locale/{}/LC_MESSAGES/$(uuid).mo {}.po
 
-dist: schemas gettext ## Prepare zip file for extensions.gnome.org
+dist: gettext ## Prepare zip file for extensions.gnome.org
+	rm -f schemas/gschemas.compiled
 	gnome-extensions pack --force --podir=locale --extra-source src --extra-source LICENSE .
 
 schemas: ## Compile glib schemas

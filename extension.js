@@ -38,23 +38,29 @@ export default class extends Extension {
         this.mods = {}
 
         this.settings = this.getSettings()
+        this._signal_ids = []
 
         Object.keys(this.available_mods).forEach(name => {
-            this.settings.connect('changed::' + name, () => {
+            this._signal_ids.push(this.settings.connect('changed::' + name, () => {
                 this._refresh_mod(name)
-            });
+            }));
             this._refresh_mod(name)
         })
     }
 
     disable() {
+        for (const id of this._signal_ids) {
+            this.settings.disconnect(id)
+        }
+        this._signal_ids = null
+
         for (const key in this.mods) {
             if (!this.mods.hasOwnProperty(key)) continue;
             this.mods[key].disable()
         }
 
-        delete this.available_mods
-        delete this.mods
-        delete this.settings
+        this.available_mods = null
+        this.mods = null
+        this.settings = null
     }
 }
