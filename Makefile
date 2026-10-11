@@ -10,8 +10,9 @@ gettext: ## Generate .mo translation files
 	find locale -name *.po | xargs basename -s .po | xargs -I{} msgfmt -D locale -o locale/{}/LC_MESSAGES/$(uuid).mo {}.po
 
 dist: gettext ## Prepare zip file for extensions.gnome.org
-	rm -f schemas/gschemas.compiled
 	gnome-extensions pack --force --podir=locale --extra-source src --extra-source LICENSE .
+	# pack always compiles schemas; EGO rejects gschemas.compiled for 45+ (shell compiles them itself)
+	zip -d $(uuid).shell-extension.zip schemas/gschemas.compiled
 
 schemas: ## Compile glib schemas
 	glib-compile-schemas ./schemas/
