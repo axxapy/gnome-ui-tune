@@ -21,19 +21,12 @@ export default class extends Mod {
         _thumbnailsBox._maxThumbnailScale = this.scaleFactor
         
         const __scaleFactor = this.scaleFactor
-        this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight = SecondaryMonitorDisplay.prototype._getThumbnailsHeight
-        SecondaryMonitorDisplay.prototype._getThumbnailsHeight = function(box) {
-            if (!this || !this._thumbnails.visible)
-                return 0;
-            
+        this.bkp_SecondaryMonitorDisplay_init = SecondaryMonitorDisplay.prototype._init
+        const _init = this.bkp_SecondaryMonitorDisplay_init
+        SecondaryMonitorDisplay.prototype._init = function(...args) {
+            _init.call(this, ...args)
+            // Must be set before the first layout: changing it later doesn't invalidate the cached size request
             this._thumbnails._maxThumbnailScale = __scaleFactor
-
-            const [width, height] = box.get_size();
-            const {expandFraction} = this._thumbnails;
-            const [thumbnailsHeight] = this._thumbnails.get_preferred_height(width);
-            return Math.min(
-                thumbnailsHeight * expandFraction,
-                height * this._thumbnails.maxThumbnailScale);
         }
     }
 
@@ -43,8 +36,8 @@ export default class extends Mod {
             _thumbnailsBox._maxThumbnailScale = this.bkp_MAX_THUMBNAIL_SCALE
         }
 
-        if (this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight) {
-            SecondaryMonitorDisplay.prototype._getThumbnailsHeight = this.bkp_SecondaryMonitorDisplay_getThumbnailsHeight
+        if (this.bkp_SecondaryMonitorDisplay_init) {
+            SecondaryMonitorDisplay.prototype._init = this.bkp_SecondaryMonitorDisplay_init
         }
     }
 }
